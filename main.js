@@ -1,12 +1,10 @@
-/* All the necessary element */
-
-var MainTodoContainer = document.getElementById('todos');
+/* Select all the necessary Elements  */
 var input = document.querySelector('.todo_input');
+var MainTodoContainer = document.getElementById('todos')
 var addingButton = document.querySelector('.add-item');
 var deleteAllBtn = document.querySelector('.deleteBtn');
 var completedButton = document.querySelector('.completed');
 var removeButton = document.querySelector('.trash');
-
 
 addingButton.addEventListener('click', function(e){
     /* stoping button behaviour */
@@ -32,14 +30,12 @@ addingButton.addEventListener('click', function(e){
         completeButton.classList.add('completed');
         completeButton.innerHTML = '<i class="fas fa-check"></i>';
         /* Edit Button */
-        var editButton = document.createElement('button');
-        editButton.innerHTML = '<i class="far fa-edit"></i>';
-        editButton.classList.add('editBtn');
-        console.log(editButton);
-        editButton.onclick = function(){
+        var editBtn = document.createElement('button');
+        editBtn.innerHTML = '<i class="far fa-edit"></i>';
+        editBtn.classList.add('editBtn');
+        editBtn.onclick = function(){
             editWorking(liTag);
         }
-        
         /* trash button element2 */
         var trashButton = document.createElement('button');
         trashButton.classList.add('trash');
@@ -50,7 +46,7 @@ addingButton.addEventListener('click', function(e){
         todoList.appendChild(liTag);
         todoList.appendChild(buttonDiv);
         buttonDiv.appendChild(completeButton);
-        buttonDiv.appendChild(editButton);
+        buttonDiv.appendChild(editBtn);
         buttonDiv.appendChild(trashButton);
     
         /* if input is empty then don't display empty list in DOM */
@@ -81,6 +77,7 @@ addingButton.addEventListener('click', function(e){
         alert('please fill the input field')
     }
 });
+
 
 function editWorking(e){
     var editValue = prompt('edit the select item', e.firstChild.nodeValue);
