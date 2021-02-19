@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    padding: auto;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: 'Poppins','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    background: rgb(235, 220, 220);
+    background: linear-gradient(100deg, rgb(221, 212, 221) 0%, rgb(0, 0, 0) 100%);
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+#todos{
+    color:rgb(63, 13, 13);
+    padding: 20px;
+    width: 600px;
+    margin: 0 auto;
+    height: auto;
+}
+
+#todos > .heading{
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+#todos > .heading > h2{
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+#todos > .heading > h2::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    width: 10%;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    transition: .5s;
+}
+#todos > .heading > h2:hover::before{
+    width: 80%;
+}
+
+#todos > .input-container {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#todos > .input-container > .todo_input{
+    width: 100%;
+    height: 40px;
+    padding: 0 0 0 10px;
+    font-size: 1.2rem;
+    outline: rgb(61, 42, 165);
+    border: 10px;
+}
+
+#todos > .input-container > .add-item{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgb(236, 44, 44);
+    line-height: 40px;
+    color: white;
+    cursor: pointer;
+}
+#todos > .input-container > .add-item:nth-child(2){
+    right: 40px;
+    background-color: rgb(175, 23, 235);
+}
