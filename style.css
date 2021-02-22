@@ -67,7 +67,7 @@ body{
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
+    width: 85px;
     height: 40px;
     background-color: rgb(236, 44, 44);
     line-height: 40px;
@@ -75,8 +75,9 @@ body{
     cursor: pointer;
 }
 #todos > .todo-input-container > .add-item:nth-child(2){
-    right: 40px;
+    right: 80px;
     background-color: rgb(178, 27, 248);
+    ;
 }
 #todos > .todo-list-container{
     list-style: none;

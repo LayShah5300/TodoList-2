@@ -90,3 +90,21 @@ function deleteAllElements(){
     }
     input.value = '';
 }
+
+/* Add search field*/
+let SearchtextBox = document.getElementById("searchtextBox");
+searchtextbox.addEventListener("input", function() {
+    let trlist = document.getElementsByClassName('todo-list-container');
+    Array.from(trlist).forEach(function(item) {
+            let searchedtext = item.getElementsByTagName("li")[0].innerText;
+            let searchtextboxval = searchtextbox.value;
+            let re = new RegExp(searchtextboxval, 'gi');
+            if (searchedtext.match(re)) {
+                
+                item.style.display = "d-block";
+            } else {
+                item.style.display = "none";
+            }
+        })
+       
+})
