@@ -1,4 +1,5 @@
 /* Select all the necessary Elements  */
+
 var input = document.querySelector('.todo_input');
 var MainTodoContainer = document.getElementById('todos')
 var addingButton = document.querySelector('.add-item');
@@ -22,6 +23,8 @@ addingButton.addEventListener('click', function(e){
         var liTag = document.createElement('li');
         liTag.innerText = input.value;
         liTag.classList.add('todo-item');
+        /*Save data to local storage*/
+        saveLocalTodos(input.value);
         /* Button Div */
         var buttonDiv = document.createElement('div');
         buttonDiv.classList.add('button');
@@ -52,6 +55,8 @@ addingButton.addEventListener('click', function(e){
         /* if input is empty then don't display empty list in DOM */
         MainTodoContainer.appendChild(ulTag);
 
+        
+
             /* sessionStorage */
         /* when the add button click clear the input value */
         input.value = '';
@@ -78,11 +83,18 @@ addingButton.addEventListener('click', function(e){
     }
 });
 
-
+/**
+ * It takes the value present in task and then let user edit it.
+ * @param {string} e 
+ */
 function editWorking(e){
     var editValue = prompt('edit the select item', e.firstChild.nodeValue);
     e.firstChild.nodeValue = editValue;
 }
+
+/**
+ * This function delete's All the task present in the List.
+ */
 function deleteAllElements(){
     var gettingUlTag = document.querySelectorAll('.todo-list-container');
     for(var i = 0; i < gettingUlTag.length; i++){
@@ -91,7 +103,9 @@ function deleteAllElements(){
     input.value = '';
 }
 
-/* Add search field*/
+/**
+ * This Function is used for searching. It takes input from user and shows the searched result.
+ */
 let SearchtextBox = document.getElementById("searchtextBox");
 searchtextbox.addEventListener("input", function() {
     let trlist = document.getElementsByClassName('todo-list-container');
@@ -100,11 +114,22 @@ searchtextbox.addEventListener("input", function() {
             let searchtextboxval = searchtextbox.value;
             let re = new RegExp(searchtextboxval, 'gi');
             if (searchedtext.match(re)) {
-                
-                item.style.display = "d-block";
-            } else {
+                 item.style.display = "d-block";
+            }else {
                 item.style.display = "none";
             }
         })
        
 })
+
+/*Function to store data in local storage*/
+function saveLocalTodos(todo){
+    let todoz;
+    if(localStorage.getItem('todoz') === null){
+        todoz = [];
+    }else{
+        todoz = JSON.parse(localStorage.getItem('todoz'));
+    }
+    todoz.push(todo);
+    localStorage.setItem('todoz',JSON.stringify(todoz));
+}

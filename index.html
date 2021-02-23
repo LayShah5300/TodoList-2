@@ -13,21 +13,22 @@
 <body>
 
     <!--Header sections begins-->
-    <header class="header-section">
+    <div class="header">
+         <h1>TODO LIST</h1>
+         <div class="search__input">
+             
+            <input type="search" placeholder="Search" aria-label="Search"
+            id="searchtextbox"  class="fa fa-search"/>
+            
+         </div>
+     </div>
 
-        <div class="topnav">
-            <h1>TODO LIST</h1>
-            <div class="search-container">
-                <form class="search__input">
-                    <input type="search" placeholder="Search" aria-label="Search"
-                      id="searchtextbox" />
-                  </form>
-            </div>
-          </div>
-        </div>
+
+
     </header>
      
-
+    <!-- <input type="search" placeholder="Search" aria-label="Search"
+    id="searchtextbox" /> -->
 
     <div id="todos">
         <div class="heading">
@@ -36,7 +37,7 @@
         <div class="todo-input-container">
             <input class="todo_input" type="text" placeholder="Add Task...">
             <i class="add-item">ADD</i>
-             <i class="add-item deleteBtn" onclick="deleteAllElements()">Delete All</i>  
+             <i class="add-item deleteBtn" onclick="deleteAllElements()">Delete All</i> 
         </div>  
     </div>
     <script src="main.js"></script>
